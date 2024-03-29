@@ -34,8 +34,6 @@ void draw_frame(Window& window, Level& level)
 {
 
     SDL_RenderClear(window.renderer);
-
-    SDL_SetRenderDrawColor(window.renderer, 255, 255, 255, 255);
     for (size_t row = 0; row < LEVEL_HEIGHT; row++)
     {
     	for (size_t col = 0; col < LEVEL_WIDTH; col++)
@@ -45,8 +43,6 @@ void draw_frame(Window& window, Level& level)
 			SDL_RenderDrawPoint(window.renderer, row, col);	
     	}
     }
-    SDL_SetRenderDrawColor(window.renderer, 0,0,0,255);
-
 
 	SDL_RenderPresent(window.renderer);
 
