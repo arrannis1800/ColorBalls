@@ -1,6 +1,7 @@
 #include "ball.h"
 
 #include <random>
+#include <stdio.h>
 
 #include "consts.h"
 
@@ -20,14 +21,19 @@ Position Ball::get_position()
 	return position;
 };
 
+Color Ball::get_color()
+{
+	return color;
+};
+
 void Ball::update_position()
 {
 	Position temp_p;
-	temp_p.x = VELOCITY * cosf(rad_direction);
-	temp_p.y = VELOCITY * sinf(rad_direction);
+	temp_p.x = position.x + floor(VELOCITY * sinf(rad_direction) + 0.5);
+	temp_p.y = position.y + floor(VELOCITY * cosf(rad_direction) + 0.5);
 
 	Collision is_collision = world->bCollision(temp_p);
-
+	
 	if(is_collision)
 	{
 		if (is_collision & 1) // horizontal
@@ -36,12 +42,13 @@ void Ball::update_position()
 		} 
 		if (is_collision & 2) // vertical
 		{
-			rad_direction = int(2*PI - rad_direction + PI) % 2*PI;
+			rad_direction = fmod(2*PI - rad_direction + PI, 2*PI);
 		}
 		update_position();
 		return;
 	}
 
 	position = temp_p;
+	
 	return;
 };

@@ -40,9 +40,18 @@ void draw_frame(Window& window, Level& level)
     	{
     		Color cell = level.get_level_pixel(col, row).color;
     		SDL_SetRenderDrawColor(window.renderer, cell.r, cell.g, cell.b, 255);
-			SDL_RenderDrawPoint(window.renderer, row, col);	
+			SDL_RenderDrawPoint(window.renderer, col, row);	
     	}
     }
+
+    std::vector<Ball> balls = level.get_balls();
+	for (auto& ball : balls)
+	{
+		Color color = ball.get_color();
+		SDL_SetRenderDrawColor(window.renderer, color.r, color.g, color.b, 255);
+		Position pos = ball.get_position();
+		SDL_RenderDrawPoint(window.renderer, pos.x, pos.y);	
+	}
 
 	SDL_RenderPresent(window.renderer);
 
@@ -66,6 +75,8 @@ bool draw_window(Window& window, Level& level)
 	{
 
 		draw_frame(window,level);
+
+		level.update_level();
 
 		while (SDL_PollEvent(&e))
 		{

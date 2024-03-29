@@ -12,6 +12,7 @@ public:
 	Ball(Position pos, Color col, Level* level);
 
 	Position get_position();
+	Color get_color();
 
 	void update_position();
 
