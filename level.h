@@ -16,6 +16,8 @@ public:
 
 	Collision bCollision(Position p);
 
+	Cell get_level_pixel(size_t h, size_t w);
+
 private:
 	size_t height;
 	size_t width;

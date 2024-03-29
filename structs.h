@@ -4,13 +4,15 @@
 
 struct Window
 {
-	SDL_Window* window = NULL;
-	SDL_Surface* surface = NULL;
+	SDL_Window* window;
+	SDL_Renderer* renderer;
 };
 
 struct Color
 {
-	uint32_t color;
+	uint8_t r;
+	uint8_t g;
+	uint8_t b;
 };
 
 struct Cell

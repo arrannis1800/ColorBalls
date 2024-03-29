@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
 			Level level = Level(LEVEL_HEIGHT, LEVEL_WIDTH, BALLS);
 
-			draw_window(window);
+			draw_window(window, level);
 		
 	}
 
