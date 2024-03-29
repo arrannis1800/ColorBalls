@@ -1,7 +1,6 @@
 #include "ball.h"
 
 #include <random>
-#include <stdio.h>
 
 #include "consts.h"
 

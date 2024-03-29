@@ -15,7 +15,7 @@ Level::Level(size_t h, size_t w, size_t num_balls)
 	for(size_t i = 0; i < height*width; i++)
 	{
 		Cell cell;
-		cell.color = {.r=i/height,.g=i%width,.b=i%width};
+		cell.color = {.r=(uint8_t)(i/height),.g=(uint8_t)(i%width),.b=(uint8_t)(i%width)};
 		level.push_back(cell);
 	}
 };
