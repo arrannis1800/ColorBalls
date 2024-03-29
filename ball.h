@@ -1,14 +1,14 @@
 #ifndef BALL_H
 #define BALL_H
 
-#include <random>
-
 #include "level.h"
+#include "structs.h"
 class Level;
 
 class Ball 
 {
 public:
+	Ball();
 	Ball(Position pos, Color col, Level* level);
 
 	Position get_position();

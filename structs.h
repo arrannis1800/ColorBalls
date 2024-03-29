@@ -1,6 +1,12 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
+#include <SDL.h>
 
+struct Window
+{
+	SDL_Window* window = NULL;
+	SDL_Surface* surface = NULL;
+};
 
 struct Color
 {

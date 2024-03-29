@@ -1,16 +1,19 @@
 #include "level.h"
-#include "structs.h"
 
 
-Level::Level(size_t h, size_t w)
+Level::Level(size_t h, size_t w, size_t num_balls)
 {
 	height = h;
 	width = w;
 
-	balls = {Ball()};
+	for(size_t i = 0; i < num_balls; i++)
+	{
+		Ball ball = Ball({.x=i*2,.y=i*2}, {.color=0x00000000}, this);
+		balls.push_back(ball);
+	}
 	Cell cell;
-	cell.color = 0x00000000;
-	level.resize(height*width, cell)
+	cell.color.color = 0x00000000;
+	level.resize(height*width, cell);
 };
 
 Collision Level::bCollision(Position p)

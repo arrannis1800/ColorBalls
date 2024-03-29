@@ -1,12 +1,18 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
+#include <vector>
+
 #include "ball.h"
+#include "structs.h"
+
+class Ball;
 
 class Level 
 {
 public:
-	Level(size_t h, size_t w);
+	Level();
+	Level(size_t h, size_t w, size_t num_balls);
 
 	Collision bCollision(Position p);
 

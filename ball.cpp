@@ -1,5 +1,8 @@
 #include "ball.h"
 
+#include <random>
+
+#include "consts.h"
 
 Ball::Ball(Position pos, Color col, Level* level)
 {
