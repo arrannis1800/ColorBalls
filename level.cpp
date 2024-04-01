@@ -17,13 +17,13 @@ Level::Level(size_t h, size_t w, size_t num_balls)
 
 	for(size_t i = 0; i < height*width; i++)
 	{
-		Cell cell;
-		cell.color = {
-				.r=static_cast<uint8_t>(i/height),
-				.g=static_cast<uint8_t>(i%width),
-				.b=static_cast<uint8_t>(i%width)
-			};
-		level.push_back(cell);
+	    Cell cell;
+	    cell.color = {
+	        .r = static_cast<uint8_t>((i / width) * 256 / height),
+	        .g = static_cast<uint8_t>((i % width) * 256 / width),
+	        .b = static_cast<uint8_t>((i / width) * 256 / height)
+	    };
+	    level.push_back(cell);
 	}
 };
 

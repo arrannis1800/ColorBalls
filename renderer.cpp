@@ -15,7 +15,7 @@ bool init_window(Window& window)
         return success;
 	} else
 	{
-		window.window = SDL_CreateWindow("ColorBalls", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, LEVEL_HEIGHT, LEVEL_WIDTH, SDL_WINDOW_SHOWN);
+		window.window = SDL_CreateWindow("ColorBalls", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, LEVEL_WIDTH, LEVEL_HEIGHT, SDL_WINDOW_SHOWN);
 		if(window.window == NULL)
 		{
 			printf("ERROR: Couldn't create window\n");
@@ -38,7 +38,7 @@ void draw_frame(Window& window, Level& level)
     {
     	for (size_t col = 0; col < LEVEL_WIDTH; col++)
     	{
-    		Color cell = level.get_level_pixel(col, row).color;
+    		Color cell = level.get_level_pixel(row, col).color;
     		SDL_SetRenderDrawColor(window.renderer, cell.r, cell.g, cell.b, 255);
 			SDL_RenderDrawPoint(window.renderer, col, row);	
     	}
