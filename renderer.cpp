@@ -34,9 +34,9 @@ void draw_frame(Window& window, Level& level)
 {
 
     SDL_RenderClear(window.renderer);
-    for (size_t row = 0; row < LEVEL_HEIGHT; row++)
+    for (uint32_t row = 0; row < LEVEL_HEIGHT; row++)
     {
-    	for (size_t col = 0; col < LEVEL_WIDTH; col++)
+    	for (uint32_t col = 0; col < LEVEL_WIDTH; col++)
     	{
     		Color cell = level.get_level_pixel(row, col).color;
     		SDL_SetRenderDrawColor(window.renderer, cell.r, cell.g, cell.b, 255);

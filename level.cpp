@@ -1,7 +1,7 @@
 #include "level.h"
 
 
-Level::Level(size_t h, size_t w, size_t num_balls)
+Level::Level(uint32_t h, uint32_t w, size_t num_balls)
 {
 	height = h;
 	width = w;
@@ -9,13 +9,13 @@ Level::Level(size_t h, size_t w, size_t num_balls)
 	for(size_t i = 0; i < num_balls; i++)
 	{
 		Ball ball = Ball(
-					{.x=(i+1)*10,.y=(i+1)*50}, 
+					{.x=static_cast<int64_t>((i+1)*10),.y=static_cast<int64_t>((i+1)*50)}, 
 					{.r=255,.g=255,.b=255}, 
 					this);
 		balls.push_back(ball);
 	}
 
-	for(size_t i = 0; i < height*width; i++)
+	for(uint32_t i = 0; i < height*width; i++)
 	{
 	    Cell cell;
 	    cell.color = {
@@ -49,7 +49,7 @@ Collision Level::bCollision(Position p)
 	return Collision(res);
 };
 
-Cell Level::get_level_pixel(size_t h, size_t w)
+Cell Level::get_level_pixel(uint32_t h, uint32_t w)
 {
 	return level[w+h*width];
 };

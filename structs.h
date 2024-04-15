@@ -22,8 +22,8 @@ struct Cell
 
 struct Position
 {
-	size_t x;
-	size_t y;
+	int64_t x;
+	int64_t y;
 };
 
 enum Collision

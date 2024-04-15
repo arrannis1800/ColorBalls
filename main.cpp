@@ -6,6 +6,9 @@
 
 int main(int argc, char *argv[])
 {
+	(void)argc;
+    (void)argv;
+
 	Window window;
 	if(init_window(window))
 	{
